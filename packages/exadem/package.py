@@ -8,7 +8,8 @@ class Exadem(CMakePackage):
     git = "https://github.com/Collab4exaNBody/exaDEM.git"
 
     version("main", git='https://github.com/Collab4exaNBody/exaDEM.git',  branch='main') 
-    version("1.1.0", git='https://github.com/Collab4exaNBody/exaDEM.git', tag='v1.1.0', preferred=True )
+    version("1.1.1", git='https://github.com/Collab4exaNBody/exaDEM.git', branch='v1.1.1', preferred=True )
+    version("1.1.0", git='https://github.com/Collab4exaNBody/exaDEM.git', branch='v1.1.0')
     version("1.0.2", git='https://github.com/Collab4exaNBody/exaDEM.git', tag='v1.0.2')
     version("1.0.1", git='https://github.com/Collab4exaNBody/exaDEM.git', tag='v1.0.1')
     variant("cuda", default=False, description="Support for GPU")
@@ -17,16 +18,18 @@ class Exadem(CMakePackage):
     depends_on("cmake@3.27.9")
     depends_on("yaml-cpp@0.6.3")
     depends_on("openmpi")
-    depends_on("exanbody")
-    depends_on("cuda", when="+cuda")
     depends_on("rsampi", when="+rsampi")
-
+    depends_on("exanbody+cuda", when="+cuda")
+    depends_on("onika+cuda", when="+cuda")	
+	
+# main
+    depends_on("exanbody@main", when="@main")
+	
+# v1.1.1
+    depends_on("exanbody@v2.0.2", when="@1.1.1")
+	
 # v1.1.0
     depends_on("exanbody@v2.0.0", when="@1.1.0")
-    depends_on("onika@main", when="@1.1.0")
-    depends_on("exanbody+cuda", when="+cuda")
-    depends_on("onika+cuda", when="+cuda")
-
 
     build_system("cmake", default="cmake")
 
