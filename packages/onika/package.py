@@ -9,7 +9,7 @@ class Onika(CMakePackage):
 
 
     version("main",  git='https://github.com/Collab4exaNBody/onika.git', branch='main')
-    version("v1.0.2",  git='https://github.com/Collab4exaNBody/onika.git', tag='v1.0.2')
+    version("v1.0.2",  git='https://github.com/Collab4exaNBody/onika.git', tag='v1.0.2', preferred=True)
     version("v1.0.0",  git='https://github.com/Collab4exaNBody/onika.git', tag='v1.0.0')
 
     depends_on("cmake")
