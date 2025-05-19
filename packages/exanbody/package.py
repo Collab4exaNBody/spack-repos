@@ -18,6 +18,7 @@ class Exanbody(CMakePackage):
     depends_on("onika+cuda", when="+cuda")
     depends_on("cmake")
     variant("cuda", default=False, description="Support for GPU")
+    variant("contribs", default=False, description="Support for MD miniapp")
     depends_on("yaml-cpp")
     depends_on("cuda", when="+cuda")
 #    build_system("cmake", "autotools", default="cmake")
@@ -33,5 +34,5 @@ class Exanbody(CMakePackage):
         )
 
     def cmake_args(self):
-      args = [ ]
+      args = [self.define_from_variant("-DEXANB_BUILD_CONTRIB_MD=ON", "contribs"), self.define_from_variant("-DEXANB_BUILD_MICROSTAMP=ON", "contribs"), ]
       return args
