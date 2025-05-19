@@ -7,7 +7,7 @@ class Exastamp(CMakePackage):
     homepage = "https://github.com/Collab4exaNBody/exaStamp"
     git = "https://github.com/Collab4exaNBody/exaStamp.git"
 
-    version("3.7.0-rdev", git='git@github.com:Collab4exaNBody/exaStamp.git', branch='v3.7.0-rdev', preferred=True )
+    version("3.7.0", git='git@github.com:Collab4exaNBody/exaStamp.git', branch='v3.7.0-rdev', preferred=True )
     variant("cuda", default=False, description="Support for GPU")
 
     depends_on("cmake@3.27.9")
