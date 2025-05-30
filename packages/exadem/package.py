@@ -33,6 +33,9 @@ class Exadem(CMakePackage):
 
     build_system("cmake", default="cmake")
 
+    def setup_run_environment(self, env):
+        env.set('exaDEM_DIR', self.prefix)
+
     @run_before("install")
     def pre_install(self):
         with working_dir(self.build_directory):
