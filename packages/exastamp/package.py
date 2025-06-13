@@ -25,9 +25,5 @@ class Exastamp(CMakePackage):
     depends_on("exanbody@v2.0.2", when="@3.7.0")
 
     def cmake_args(self):
-        args = [ "-DONIKA_BUILD_exaStampLCHBOP=OFF",
-                 "-DONIKA_BUILD_exaStampSnap=OFF"
-                 "-DONIKA_BUILD_exaStampSnapLegacy=OFF",
-                 "-DONIKA_BUILD_exaStampMechanical=OFF"
-                ]
+        args = [ ]
         return args
