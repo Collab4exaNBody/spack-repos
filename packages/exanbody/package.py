@@ -7,7 +7,6 @@ class Exanbody(CMakePackage):
     homepage = "https://github.com/Collab4exaNBody/exaNBody"
     git = "https://github.com/Collab4exaNBody/exaNBody.git"
 
-
     version("main",  git='https://github.com/Collab4exaNBody/exaNBody.git', branch='main')
     version("v2.0.2",  git='https://github.com/Collab4exaNBody/exaNBody.git', tag='v2.0.2', preferred=True)
     version("v2.0.0",  git='https://github.com/Collab4exaNBody/exaNBody.git', tag='v2.0.0')
@@ -34,5 +33,5 @@ class Exanbody(CMakePackage):
         )
 
     def cmake_args(self):
-      args = [self.define_from_variant("-DEXANB_BUILD_CONTRIB_MD=ON", "contribs"), self.define_from_variant("-DEXANB_BUILD_MICROSTAMP=ON", "contribs"), ]
+      args = [self.define_from_variant("EXANB_BUILD_CONTRIB_MD=ON", "contribs"), self.define_from_variant("EXANB_BUILD_MICROSTAMP=ON", "contribs"), ]
       return args
