@@ -25,6 +25,9 @@ class Exanbody(CMakePackage):
     default_build_system = "cmake"
     build_system("cmake", default="cmake")
 
+    def setup_run_environment(self, env):
+        env.set('exaNBody_DIR', self.prefix)
+
     variant(
         "build_type",
         default="Release", 

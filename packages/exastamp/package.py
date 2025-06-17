@@ -24,6 +24,9 @@ class Exastamp(CMakePackage):
 # v3.7.0    
     depends_on("exanbody@v2.0.2", when="@3.7.0")
 
+    def setup_run_environment(self, env):
+        env.set('exaStamp_DIR', self.prefix)
+
     def cmake_args(self):
         args = [ ]
         return args
