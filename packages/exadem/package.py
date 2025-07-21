@@ -45,7 +45,7 @@ class Exadem(CMakePackage):
 
     def cmake_args(self):
         if self.spec.version <= Version("1.0.2"):
-          args = [self.define_from_variant("-DRSA_MPI=ON", "rsampi"), self.define_from_variant("-DXNB_BUILD_CUDA=ON", "cuda"), ]
+          args = [self.define_from_variant("USE_RSA", "rsampi"), self.define_from_variant("XNB_BUILD_CUDA", "cuda"), ]
         else:
-          args = [self.define_from_variant("-DRSA_MPI=ON", "rsampi"), ]
+          args = [self.define_from_variant("USE_RSA", "rsampi"), ]
         return args
