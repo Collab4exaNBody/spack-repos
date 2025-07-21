@@ -13,7 +13,7 @@ class Exanbody(CMakePackage):
     version("v2.0.0",  git='https://github.com/Collab4exaNBody/exaNBody.git', tag='v2.0.0')
 
     depends_on("onika@main", when="@main")
-    depends_on("onika@v1.0.2", when="@v2.0.4")
+    depends_on("onika@v1.0.4", when="@v2.0.4")
     depends_on("onika@v1.0.2", when="@v2.0.2")
     depends_on("onika@v1.0.0", when="@v2.0.0")
     depends_on("onika+cuda", when="+cuda")
