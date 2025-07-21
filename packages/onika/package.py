@@ -29,5 +29,5 @@ class Onika(CMakePackage):
         )
 
     def cmake_args(self):
-      args = [ self.define_from_variant("-DONIKA_BUILD_CUDA=ON", "cuda"), ]
+      args = [ self.define_from_variant("ONIKA_BUILD_CUDA", "cuda"), ]
       return args
