@@ -8,7 +8,7 @@ class Exadem(CMakePackage):
     git = "https://github.com/Collab4exaNBody/exaDEM.git"
 
     version("main", git='https://github.com/Collab4exaNBody/exaDEM.git',  branch='main') 
-    version("1.1.1", git='https://github.com/Collab4exaNBody/exaDEM.git', branch='v1.1.2', preferred=True )
+    version("1.1.2", git='https://github.com/Collab4exaNBody/exaDEM.git', branch='v1.1.2', preferred=True )
     version("1.1.1", git='https://github.com/Collab4exaNBody/exaDEM.git', branch='v1.1.1')
     version("1.1.0", git='https://github.com/Collab4exaNBody/exaDEM.git', branch='v1.1.0')
     version("1.0.2", git='https://github.com/Collab4exaNBody/exaDEM.git', tag='v1.0.2')
