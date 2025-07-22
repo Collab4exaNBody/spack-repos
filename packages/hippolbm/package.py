@@ -8,7 +8,7 @@ class Hippolbm(CMakePackage):
     git = "https://github.com/Collab4exaNBody/hippoLBM.git"
 
     version("main", git='https://github.com/Collab4exaNBody/hippoLBM.git',  branch='main') 
-    version("0.1.0", git='https://github.com/Collab4exaNBody/hippoLBM.git',  tag='v0.1.0') 
+    version("0.1.0", git='https://github.com/Collab4exaNBody/hippoLBM.git',  tag='v0.1.0', preferred=True ) 
 
     variant("cuda", default=False, description="Support for GPU")
 
@@ -19,7 +19,7 @@ class Hippolbm(CMakePackage):
 	
 # main
     depends_on("onika@v1.0.4", when="@main")
-    depends_on("onika@v1.0.4", when="@v0.1.0")
+    depends_on("onika@v1.0.4", when="@0.1.0")
     build_system("cmake", default="cmake")
 
     def setup_run_environment(self, env):
