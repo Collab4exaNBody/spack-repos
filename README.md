@@ -8,6 +8,8 @@ spack repo add spack-repos
 Packages:
 
 ```
+spack install onika
+spack install exanbody
 spack install exadem
 spack install exasph
 spack install exastamp
