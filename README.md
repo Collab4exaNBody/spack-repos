@@ -9,12 +9,9 @@ Packages:
 
 ```
 spack install exadem
-```
-
-```
-spack install exanbody
-```
-
-```
-spack install onika
+spack install exasph
+spack install exastamp
+spack install hippolbm
+spack install rsampi
+spack install rockable
 ```
