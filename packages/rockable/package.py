@@ -8,6 +8,7 @@ class Rockable(CMakePackage):
     git = "https://github.com/richefeu/rockable.git"
 
     version("main", git='https://github.com/richefeu/rockable.git',  branch='main') 
+    version("1.0.0", git={'https://github.com/richefeu/rockable.git', tag='1.0.0', preferred=True )	
  
     variant("see", default=True, description="Compile the glut application to visualize the conf-files")
     variant("see2", default=False, description="Compile the glfw application to visualize the conf-files")
