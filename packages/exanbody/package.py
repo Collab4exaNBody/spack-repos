@@ -8,7 +8,7 @@ class Exanbody(CMakePackage):
     git = "https://github.com/Collab4exaNBody/exaNBody.git"
 
     version("main",  git='https://github.com/Collab4exaNBody/exaNBody.git', branch='main')
-    version("v2.0.5",  git='https://github.com/Collab4exaNBody/exaNBody.git', tag='v2.0.6', preferred=True)
+    version("v2.0.6",  git='https://github.com/Collab4exaNBody/exaNBody.git', tag='v2.0.6', preferred=True)
     version("v2.0.5",  git='https://github.com/Collab4exaNBody/exaNBody.git', tag='v2.0.5')
     version("v2.0.4",  git='https://github.com/Collab4exaNBody/exaNBody.git', tag='v2.0.4')
     version("v2.0.2",  git='https://github.com/Collab4exaNBody/exaNBody.git', tag='v2.0.2')
