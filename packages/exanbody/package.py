@@ -8,12 +8,14 @@ class Exanbody(CMakePackage):
     git = "https://github.com/Collab4exaNBody/exaNBody.git"
 
     version("main",  git='https://github.com/Collab4exaNBody/exaNBody.git', branch='main')
+    version("v2.0.5",  git='https://github.com/Collab4exaNBody/exaNBody.git', tag='v2.0.6', preferred=True)
     version("v2.0.5",  git='https://github.com/Collab4exaNBody/exaNBody.git', tag='v2.0.5')
-    version("v2.0.4",  git='https://github.com/Collab4exaNBody/exaNBody.git', tag='v2.0.4', preferred=True)
+    version("v2.0.4",  git='https://github.com/Collab4exaNBody/exaNBody.git', tag='v2.0.4')
     version("v2.0.2",  git='https://github.com/Collab4exaNBody/exaNBody.git', tag='v2.0.2')
     version("v2.0.0",  git='https://github.com/Collab4exaNBody/exaNBody.git', tag='v2.0.0')
 
     depends_on("onika@main", when="@main")
+    depends_on("onika@v1.0.4", when="@v2.0.6")
     depends_on("onika@v1.0.4", when="@v2.0.5")
     depends_on("onika@v1.0.4", when="@v2.0.4")
     depends_on("onika@v1.0.2", when="@v2.0.2")
