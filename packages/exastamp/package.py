@@ -1,16 +1,21 @@
-from spack import *
+from spack_repo.builtin.build_systems.cmake import CMakePackage
+from spack.package import *
+
+import os
+import shutil
 
 class Exastamp(CMakePackage):
     """ExaSTAMP is a MD Simulation Code using the ExaNBody framework.
     """
 
     homepage = "https://github.com/Collab4exaNBody/exaStamp"
-    git = "https://github.com/Collab4exaNBody/exaStamp.git"
+    git      = "https://github.com/Collab4exaNBody/exaStamp.git"
 
-    version("main" , git='https://github.com/Collab4exaNBody/exaStamp.git', branch='main')
-    version("3.7.3", git='https://github.com/Collab4exaNBody/exaStamp.git', branch='v3.7.3', preferred=True)
-    version("3.7.2", git='https://github.com/Collab4exaNBody/exaStamp.git', branch='v3.7.2')
-    version("3.7.0", git='https://github.com/Collab4exaNBody/exaStamp.git', branch='v3.7.0-rdev')
+    version('main', branch='main')
+    version('3.7.4', branch='v3.7.4', preferred=True)
+    version('3.7.3', branch='v3.7.3')
+    version('3.7.2', branch='v3.7.2')
+    version('3.7.0', branch='v3.7.0-rdev')
     variant("cuda", default=False, description="Support for GPU")
 
     depends_on("cmake@3.27.9")

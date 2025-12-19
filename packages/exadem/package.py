@@ -1,4 +1,8 @@
-from spack import *
+from spack_repo.builtin.build_systems.cmake import CMakePackage
+from spack.package import *
+
+import os
+import shutil
 
 class Exadem(CMakePackage):
     """ExaDEM is a DEM Simulation Code using the ExaNBody framework.
@@ -7,13 +11,16 @@ class Exadem(CMakePackage):
     homepage = "https://github.com/Collab4exaNBody/exaDEM"
     git = "https://github.com/Collab4exaNBody/exaDEM.git"
 
-    version("main", git='https://github.com/Collab4exaNBody/exaDEM.git',  branch='main') 
-    version("1.1.5", git='https://github.com/Collab4exaNBody/exaDEM.git', branch='v1.1.5', preferred=True )
-    version("1.1.2", git='https://github.com/Collab4exaNBody/exaDEM.git', branch='v1.1.2')
-    version("1.1.1", git='https://github.com/Collab4exaNBody/exaDEM.git', branch='v1.1.1')
-    version("1.1.0", git='https://github.com/Collab4exaNBody/exaDEM.git', branch='v1.1.0')
-    version("1.0.2", git='https://github.com/Collab4exaNBody/exaDEM.git', tag='v1.0.2')
-    version("1.0.1", git='https://github.com/Collab4exaNBody/exaDEM.git', tag='v1.0.1')
+    version("main", branch='main') 
+    version("1.1.6", tag='v1.1.6', preferred=True)
+    version("1.1.5", tag='v1.1.5')
+    version("1.1.4", tag='v1.1.4')
+    version("1.1.3", tag='v1.1.3')
+    version("1.1.2", tag='v1.1.2')
+    version("1.1.1", tag='v1.1.1')
+    version("1.1.0", tag='v1.1.0')
+    version("1.0.2", tag='v1.0.2')
+    version("1.0.1", tag='v1.0.1')
     variant("cuda", default=False, description="Support for GPU")
     variant("rsampi", default=False, description="Support for particles generation using the RSA package")
 
@@ -28,7 +35,10 @@ class Exadem(CMakePackage):
     depends_on("exanbody@main", when="@main")
 	
 # versioning
+    depends_on("exanbody@v2.0.4", when="@1.1.6")
     depends_on("exanbody@v2.0.4", when="@1.1.5")
+    depends_on("exanbody@v2.0.4", when="@1.1.4")
+    depends_on("exanbody@v2.0.4", when="@1.1.3")
     depends_on("exanbody@v2.0.4", when="@1.1.2")
     depends_on("exanbody@v2.0.2", when="@1.1.1")
     depends_on("exanbody@v2.0.0", when="@1.1.0")

@@ -1,4 +1,8 @@
-from spack import *
+from spack_repo.builtin.build_systems.cmake import CMakePackage
+from spack.package import *
+
+import os
+import shutil
 
 class Exanbody(CMakePackage):
     """ExaNBody is a N-Body framework.
@@ -8,11 +12,12 @@ class Exanbody(CMakePackage):
     git = "https://github.com/Collab4exaNBody/exaNBody.git"
 
     version("main",  git='https://github.com/Collab4exaNBody/exaNBody.git', branch='main')
-    version("v2.0.6",  git='https://github.com/Collab4exaNBody/exaNBody.git', tag='v2.0.6', preferred=True)
-    version("v2.0.5",  git='https://github.com/Collab4exaNBody/exaNBody.git', tag='v2.0.5')
-    version("v2.0.4",  git='https://github.com/Collab4exaNBody/exaNBody.git', tag='v2.0.4')
-    version("v2.0.2",  git='https://github.com/Collab4exaNBody/exaNBody.git', tag='v2.0.2')
-    version("v2.0.0",  git='https://github.com/Collab4exaNBody/exaNBody.git', tag='v2.0.0')
+    version("v2.0.7",  tag='v2.0.7', preferred=True)
+    version("v2.0.6",  tag='v2.0.6')
+    version("v2.0.5",  tag='v2.0.5')
+    version("v2.0.4",  tag='v2.0.4')
+    version("v2.0.2",  tag='v2.0.2')
+    version("v2.0.0",  tag='v2.0.0')
 
     depends_on("onika@main", when="@main")
     depends_on("onika@v1.0.4", when="@v2.0.6")

@@ -1,4 +1,8 @@
-from spack import *
+from spack_repo.builtin.build_systems.cmake import CMakePackage
+from spack.package import *
+
+import os
+import shutil
 
 class Rockable(CMakePackage):
     """Rockable is a DEM Simulation Code.
@@ -7,8 +11,8 @@ class Rockable(CMakePackage):
     homepage = "https://github.com/richefeu/rockable"
     git = "https://github.com/richefeu/rockable.git"
 
-    version("main", git='https://github.com/richefeu/rockable.git',  branch='main') 
-    version("1.0.0", git='https://github.com/richefeu/rockable.git', tag='1.0.0', preferred=True)
+    version("main", branch='main') 
+    version("1.0.0", tag='1.0.0', preferred=True)
     
     variant("see", default=True, description="Compile the glut application to visualize the conf-files")
     variant("see2", default=False, description="Compile the glfw application to visualize the conf-files")
