@@ -1,4 +1,8 @@
-from spack import *
+from spack_repo.builtin.build_systems.cmake import CMakePackage
+from spack.package import *
+
+import os
+import shutil
 
 class Hippolbm(CMakePackage):
     """HippoLNM is a LBM Simulation Code.
@@ -7,8 +11,8 @@ class Hippolbm(CMakePackage):
     homepage = "https://github.com/Collab4exaNBody/hippoLBM"
     git = "https://github.com/Collab4exaNBody/hippoLBM.git"
 
-    version("main", git='https://github.com/Collab4exaNBody/hippoLBM.git',  branch='main') 
-    version("0.1.0", git='https://github.com/Collab4exaNBody/hippoLBM.git',  tag='v0.1.0', preferred=True ) 
+    version("main", branch='main') 
+    version("0.1.0", tag='v0.1.0', preferred=True ) 
 
     variant("cuda", default=False, description="Support for GPU")
 

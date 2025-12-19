@@ -1,4 +1,8 @@
-from spack import *
+from spack_repo.builtin.build_systems.cmake import CMakePackage
+from spack.package import *
+
+import os
+import shutil
 
 class Rsampi(CMakePackage):
     """C++ library : HPC implementation of RSA algorithm for maximal Poisson-sphere sampling 
@@ -7,7 +11,7 @@ class Rsampi(CMakePackage):
     homepage = "https://github.com/MarcJos/RSA_MPI"
     git = "https://github.com/MarcJos/RSA_MPI.git"
 
-    version('0.1.0', git='https://github.com/MarcJos/RSA_MPI.git', branch='v0.1.0')
+    version('0.1.0', branch='v0.1.0')
 
     depends_on("cmake")
     depends_on("openmpi")

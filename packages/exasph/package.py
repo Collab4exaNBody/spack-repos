@@ -1,4 +1,8 @@
-from spack import *
+from spack_repo.builtin.build_systems.cmake import CMakePackage
+from spack.package import *
+
+import os
+import shutil
 
 class Exasph(CMakePackage):
     """ExaSPH is a SPH Simulation Code using the ExaNBody framework.
@@ -7,7 +11,7 @@ class Exasph(CMakePackage):
     homepage = "https://github.com/Collab4exaNBody/exaSPH"
     git = "https://github.com/Collab4exaNBody/exaSPH.git"
 
-    version("1.0.0", git='git@github.com:Collab4exaNBody/exaSPH.git', branch='v1.0.0-rdev', preferred=True )
+    version("1.0.0", branch='v1.0.0-rdev', preferred=True )
     variant("cuda", default=False, description="Support for GPU")
 
     depends_on("cmake@3.27.9")

@@ -1,4 +1,8 @@
-from spack import *
+from spack_repo.builtin.build_systems.cmake import CMakePackage
+from spack.package import *
+
+import os
+import shutil
 
 class Onika(CMakePackage):
     """Onika is runtime library.
@@ -8,10 +12,10 @@ class Onika(CMakePackage):
     git = "https://github.com/Collab4exaNBody/onika.git"
 
 
-    version("main",  git='https://github.com/Collab4exaNBody/onika.git', branch='main')
-    version("v1.0.4",  git='https://github.com/Collab4exaNBody/onika.git', tag='v1.0.4', preferred=True)
-    version("v1.0.2",  git='https://github.com/Collab4exaNBody/onika.git', tag='v1.0.2')
-    version("v1.0.0",  git='https://github.com/Collab4exaNBody/onika.git', tag='v1.0.0')
+    version("main", branch='main')
+    version("v1.0.4",  tag='v1.0.4', preferred=True)
+    version("v1.0.2",  tag='v1.0.2')
+    version("v1.0.0",  tag='v1.0.0')
 
     depends_on("cmake")
     variant("cuda", default=False, description="Support for GPU")
