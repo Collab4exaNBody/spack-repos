@@ -20,6 +20,7 @@ class Exanbody(CMakePackage):
     version("v2.0.0",  tag='v2.0.0')
 
     depends_on("onika@main", when="@main")
+    depends_on("onika@v1.0.4", when="@v2.0.7")
     depends_on("onika@v1.0.4", when="@v2.0.6")
     depends_on("onika@v1.0.4", when="@v2.0.5")
     depends_on("onika@v1.0.4", when="@v2.0.4")
