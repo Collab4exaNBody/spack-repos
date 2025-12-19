@@ -12,10 +12,10 @@ class Exadem(CMakePackage):
     git = "https://github.com/Collab4exaNBody/exaDEM.git"
 
     version("main", branch='main') 
-    version("1.1.6", tag='v1.1.6', preferred=True )
-    version("1.1.5", tag='v1.1.5' )
-    version("1.1.4", tag='v1.1.4' )
-    version("1.1.3", tag='v1.1.3' )
+    version("1.1.6", tag='v1.1.6', preferred=True)
+    version("1.1.5", tag='v1.1.5')
+    version("1.1.4", tag='v1.1.4')
+    version("1.1.3", tag='v1.1.3')
     version("1.1.2", tag='v1.1.2')
     version("1.1.1", tag='v1.1.1')
     version("1.1.0", tag='v1.1.0')
