@@ -11,6 +11,7 @@ class Exastamp(CMakePackage):
     homepage = "https://github.com/Collab4exaNBody/exaStamp"
     git      = "https://github.com/Collab4exaNBody/exaStamp.git"
 
+    # Versions
     version('main', branch='main')
     version('3.7.4', branch='v3.7.4', preferred=True)
     version('3.7.3', branch='v3.7.3')
@@ -18,22 +19,26 @@ class Exastamp(CMakePackage):
     version('3.7.0', branch='v3.7.0-rdev')
     variant("cuda", default=False, description="Support for GPU")
 
+    # Variants
+    depends_on("exanbody+contribs")
+    depends_on("exanbody+cuda", when="+cuda")
+
+    # Dependencies
     depends_on("cmake@3.27.9")
     depends_on("yaml-cpp@0.6.3")
     depends_on("openmpi")
-    depends_on("exanbody+contribs")
-    depends_on("exanbody+cuda", when="+cuda")
-    build_system("cmake", default="cmake")
-
-# main
+    
+    # Main
     depends_on("exanbody@main", when="@main")
 
-# versioning
+    # Versioning
     depends_on("exanbody@v2.0.7", when="@3.7.4")
     depends_on("exanbody@v2.0.6", when="@3.7.3")
     depends_on("exanbody@v2.0.5", when="@3.7.2")
     depends_on("exanbody@v2.0.2", when="@3.7.0")    
 
+    build_system("cmake", default="cmake")
+    
     def setup_run_environment(self, env):
         env.set('exaStamp_DIR', self.prefix)
 
