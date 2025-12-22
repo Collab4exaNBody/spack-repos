@@ -11,17 +11,22 @@ class Onika(CMakePackage):
     homepage = "https://github.com/Collab4exaNBody/onika"
     git = "https://github.com/Collab4exaNBody/onika.git"
 
-
+    # Versions
     version("main", branch='main')
+    version("v1.0.5",  tag='v1.0.5')
     version("v1.0.4",  tag='v1.0.4', preferred=True)
     version("v1.0.2",  tag='v1.0.2')
     version("v1.0.0",  tag='v1.0.0')
 
-    depends_on("cmake")
+    # Variants
     variant("cuda", default=False, description="Support for GPU")
+
+    # Dependencies
+    depends_on("cmake")
     depends_on("yaml-cpp@0.6.3")
     depends_on("openmpi")
     depends_on("cuda", when="+cuda")
+    
     default_build_system = "cmake"
     build_system("cmake", default="cmake")
 
