@@ -11,7 +11,8 @@ class Exanbody(CMakePackage):
     homepage = "https://github.com/Collab4exaNBody/exaNBody"
     git = "https://github.com/Collab4exaNBody/exaNBody.git"
 
-    version("main",  git='https://github.com/Collab4exaNBody/exaNBody.git', branch='main')
+    # Versions
+    version("main", branch='main')
     version("v2.0.7",  tag='v2.0.7', preferred=True)
     version("v2.0.6",  tag='v2.0.6')
     version("v2.0.5",  tag='v2.0.5')
@@ -19,20 +20,27 @@ class Exanbody(CMakePackage):
     version("v2.0.2",  tag='v2.0.2')
     version("v2.0.0",  tag='v2.0.0')
 
+    # Variants
+    variant("cuda", default=False, description="Support for GPU")
+    variant("contribs", default=False, description="Support for MD miniapp")    
+
+    # Dependencies
+    depends_on("cmake@3.27.9")
+    depends_on("yaml-cpp@0.6.3")
+    depends_on("openmpi")
+    depends_on("cuda", when="+cuda")
+    
+    # Main
     depends_on("onika@main", when="@main")
-    depends_on("onika@v1.0.4", when="@v2.0.7")
+    
+    # Versioning
+    depends_on("onika@v1.0.5", when="@v2.0.7")
     depends_on("onika@v1.0.4", when="@v2.0.6")
     depends_on("onika@v1.0.4", when="@v2.0.5")
     depends_on("onika@v1.0.4", when="@v2.0.4")
     depends_on("onika@v1.0.2", when="@v2.0.2")
     depends_on("onika@v1.0.0", when="@v2.0.0")
     depends_on("onika+cuda", when="+cuda")
-    depends_on("cmake")
-    variant("cuda", default=False, description="Support for GPU")
-    variant("contribs", default=False, description="Support for MD miniapp")
-    depends_on("yaml-cpp")
-    depends_on("cuda", when="+cuda")
-#    build_system("cmake", "autotools", default="cmake")
     
     default_build_system = "cmake"
     build_system("cmake", default="cmake")
@@ -52,5 +60,7 @@ class Exanbody(CMakePackage):
               self.define_from_variant("EXANB_BUILD_MICROSTAMP=ON", "contribs"),
               self.define_from_variant("EXANB_BUILD_CONTRIB_PI=ON", "contribs"),
               self.define_from_variant("EXANB_BUILD_MICROCOSMOS=ON", "contribs"),
+              self.define_from_variant("SNAP_CPU_USE_LOCKS=ON", "contribs"),
+              self.define_from_variant("SNAP_FP32_MATH=OFF", "contribs"),
               ]
       return args
