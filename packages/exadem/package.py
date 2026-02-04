@@ -31,7 +31,7 @@ class Exadem(CMakePackage):
     depends_on("exanbody+cuda", when="+cuda")
     depends_on("onika+cuda", when="+cuda")	
 
-	depends_on("exanbody particle_int_type=uint32_t")
+    depends_on("exanbody particle_int_type=uint32_t")
 # main
     depends_on("exanbody@main", when="@main")
 
