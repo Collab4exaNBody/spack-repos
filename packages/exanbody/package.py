@@ -55,17 +55,18 @@ class Exanbody(CMakePackage):
         description="CMake build type",
         )
     variant(
-        'particle_int_type', 
-        default='uint8_t', 
-        values=('uint8_t', 'uint16_t', 'uint32_t'), 
+        "particle_int_type", 
+        default="uint8_t", 
+        values=("uint8_t", "uint16_t", "uint32_t"), 
         description='Integer type used for field::type')
+
     def cmake_args(self):
-      args = [self.define_from_variant("EXANB_BUILD_CONTRIB_MD=ON", "contribs"),
-              self.define_from_variant("EXANB_BUILD_MICROSTAMP=ON", "contribs"),
-              self.define_from_variant("EXANB_BUILD_CONTRIB_PI=ON", "contribs"),
-              self.define_from_variant("EXANB_BUILD_MICROCOSMOS=ON", "contribs"),
-              self.define_from_variant("SNAP_CPU_USE_LOCKS=ON", "contribs"),
-              self.define_from_variant("SNAP_FP32_MATH=OFF", "contribs"),
-              "-DXNB_PARTICLE_TYPE_INT={0}".format(spec.variants['particle_int_type'].value)
+        args = [self.define_from_variant("EXANB_BUILD_CONTRIB_MD=ON", "contribs"),
+            self.define_from_variant("EXANB_BUILD_MICROSTAMP=ON", "contribs"),
+            self.define_from_variant("EXANB_BUILD_CONTRIB_PI=ON", "contribs"),
+            self.define_from_variant("EXANB_BUILD_MICROCOSMOS=ON", "contribs"),
+            self.define_from_variant("SNAP_CPU_USE_LOCKS=ON", "contribs"),
+            self.define_from_variant("SNAP_FP32_MATH=OFF", "contribs"),
+            "-DXNB_PARTICLE_TYPE_INT={0}".format(self.spec.variants['particle_int_type'].value),
               ]
-      return args
+        return args
