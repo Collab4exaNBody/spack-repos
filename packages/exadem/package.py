@@ -30,10 +30,11 @@ class Exadem(CMakePackage):
     depends_on("rsampi", when="+rsampi")
     depends_on("exanbody+cuda", when="+cuda")
     depends_on("onika+cuda", when="+cuda")	
-	
+
+	depends_on("exanbody particle_int_type=uint32_t")
 # main
     depends_on("exanbody@main", when="@main")
-	
+
 # versioning
     depends_on("exanbody@v2.0.4", when="@1.1.6")
     depends_on("exanbody@v2.0.4", when="@1.1.5")
