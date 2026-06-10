@@ -19,7 +19,7 @@ class Exastamp(CMakePackage):
     version('v3.7.3', branch='v3.7.3')
     version('v3.7.2', branch='v3.7.2')
     variant("cuda" , default=False, description="Support for GPU")
-    variant("mlips", default=True , description="Support for MLIPS - POD PACE etc...-")
+    variant("mlips", default=False, description="Support for MLIPS - POD PACE etc...-")
     
     # Variants
     depends_on("exanbody+contrib_md")
