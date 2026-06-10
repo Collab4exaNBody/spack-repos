@@ -70,13 +70,13 @@ class Exanbody(CMakePackage):
 
     def cmake_args(self):
         args = [
-            self.define_from_variant("EXANB_BUILD_CONTRIB_MD=ON" , "contrib_md" ),
-            self.define_from_variant("EXANB_BUILD_MICROSTAMP=ON" , "contrib_md" ),
-            self.define_from_variant("SNAP_CPU_USE_LOCKS=ON"     , "contrib_md" ),
-            self.define_from_variant("SNAP_FP32_MATH=OFF"        , "contrib_md" ),
-            self.define_from_variant("EXANB_BUILD_CONTRIB_PI=ON" , "contrib_pi" ),
-            self.define_from_variant("EXANB_BUILD_MICROCOSMOS=ON", "contrib_pi" ),
-            self.define_from_variant("EXANB_BUILD_CONTRIB_EGL=ON", "contrib_egl"),
+            self.define_from_variant("EXANB_BUILD_CONTRIB_MD" , "contrib_md" ),
+            self.define_from_variant("EXANB_BUILD_MICROSTAMP" , "contrib_md" ),
+            self.define_from_variant("SNAP_CPU_USE_LOCKS"     , "contrib_md" ),
+            self.define_from_variant("SNAP_FP32_MATH=OFF"     , "contrib_md" ),
+            self.define_from_variant("EXANB_BUILD_CONTRIB_PI" , "contrib_pi" ),
+            self.define_from_variant("EXANB_BUILD_MICROCOSMOS", "contrib_pi" ),
+            self.define_from_variant("EXANB_BUILD_CONTRIB_EGL", "contrib_egl"),
             "-DXNB_PARTICLE_TYPE_INT={0}".format(self.spec.variants['particle_int_type'].value),
               ]
         return args

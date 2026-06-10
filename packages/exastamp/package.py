@@ -48,7 +48,7 @@ class Exastamp(CMakePackage):
 
     def cmake_args(self):
         args = [
-            self.define_from_variant("EXASTAMP_BUILD_PACE=ON", "mlips" ),
-            self.define_from_variant("EXASTAMP_BUILD_POD=ON" , "mlips" ),            
+            self.define_from_variant("EXASTAMP_BUILD_PACE", "mlips" ),
+            self.define_from_variant("EXASTAMP_BUILD_POD" , "mlips" ),            
         ]
         return args
