@@ -13,18 +13,20 @@ class Exastamp(CMakePackage):
 
     # Versions
     version('main', branch='main')
-    version('3.7.4', branch='v3.7.4', preferred=True)
-    version('3.7.3', branch='v3.7.3')
-    version('3.7.2', branch='v3.7.2')
-    version('3.7.0', branch='v3.7.0-rdev')
-    variant("cuda", default=False, description="Support for GPU")
-
+    version('v3.8.0', branch='v3.8.0', preferred=True)
+    version('v3.7.5', branch='v3.7.5')
+    version('v3.7.4', branch='v3.7.4')
+    version('v3.7.3', branch='v3.7.3')
+    version('v3.7.2', branch='v3.7.2')
+    variant("cuda" , default=False, description="Support for GPU")
+    variant("mlips", default=True , description="Support for MLIPS - POD PACE etc...-")
+    
     # Variants
-    depends_on("exanbody+contribs")
+    depends_on("exanbody+contrib_md")
     depends_on("exanbody+cuda", when="+cuda")
 
     # Dependencies
-    depends_on("cmake@3.27.9")
+    depends_on("cmake")
     depends_on("yaml-cpp@0.6.3")
     depends_on("openmpi")
     
@@ -32,6 +34,8 @@ class Exastamp(CMakePackage):
     depends_on("exanbody@main", when="@main")
 
     # Versioning
+    depends_on("exanbody@v2.1.0", when="@3.8.0")
+    depends_on("exanbody@v2.0.8", when="@3.7.5")    
     depends_on("exanbody@v2.0.7", when="@3.7.4")
     depends_on("exanbody@v2.0.6", when="@3.7.3")
     depends_on("exanbody@v2.0.5", when="@3.7.2")
@@ -43,5 +47,8 @@ class Exastamp(CMakePackage):
         env.set('exaStamp_DIR', self.prefix)
 
     def cmake_args(self):
-        args = [ ]
+        args = [
+            self.define_from_variant("EXASTAMP_BUILD_PACE=ON", "mlips" ),
+            self.define_from_variant("EXASTAMP_BUILD_POD=ON" , "mlips" ),            
+        ]
         return args
