@@ -26,12 +26,12 @@ class Exanbody(CMakePackage):
     # Variants
     variant("cuda"       , default=False, description="Support for GPU")
     variant("contrib_md" , default=False, description="Support for MD miniapp")
+    variant("snap_fp32"  , default=False, description="Use FP32 math in the SNAP potential (contrib_md)")
     variant("contrib_pi" , default=False, description="Support for PI miniapp")        
     variant("contrib_egl", default=False, description="Support for EGL Rendering")        
 
     # Dependencies
-#    depends_on("cmake@3.27.9")
-    depends_on("cmake")
+    depends_on("cmake@3.31.0:")
     depends_on("yaml-cpp@0.6.3")
     depends_on("openmpi")
     depends_on("cuda", when="+cuda")
@@ -72,8 +72,7 @@ class Exanbody(CMakePackage):
         args = [
             self.define_from_variant("EXANB_BUILD_CONTRIB_MD" , "contrib_md" ),
             self.define_from_variant("EXANB_BUILD_MICROSTAMP" , "contrib_md" ),
-            self.define_from_variant("SNAP_CPU_USE_LOCKS"     , "contrib_md" ),
-            self.define_from_variant("SNAP_FP32_MATH=OFF"     , "contrib_md" ),
+            self.define_from_variant("SNAP_FP32_MATH"         , "snap_fp32"  ),
             self.define_from_variant("EXANB_BUILD_CONTRIB_PI" , "contrib_pi" ),
             self.define_from_variant("EXANB_BUILD_MICROCOSMOS", "contrib_pi" ),
             self.define_from_variant("EXANB_BUILD_CONTRIB_EGL", "contrib_egl"),
