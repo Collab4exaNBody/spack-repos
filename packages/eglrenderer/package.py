@@ -20,7 +20,7 @@ class Eglrenderer(CMakePackage):
     variant("cuda",     default=False, description="Support for GPU")
     
     # Dependencies
-    depends_on("cmake")
+    depends_on("cmake@3.31.0:")
     depends_on("mesa")
     depends_on("cuda", when="+cuda")
     
