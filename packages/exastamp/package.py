@@ -26,7 +26,7 @@ class Exastamp(CMakePackage):
     depends_on("exanbody+cuda", when="+cuda")
 
     # Dependencies
-    depends_on("cmake")
+    depends_on("cmake@3.31.0:")
     depends_on("yaml-cpp@0.6.3")
     depends_on("openmpi")
     
@@ -34,12 +34,12 @@ class Exastamp(CMakePackage):
     depends_on("exanbody@main", when="@main")
 
     # Versioning
-    depends_on("exanbody@v2.1.0", when="@3.8.0")
-    depends_on("exanbody@v2.0.8", when="@3.7.5")    
-    depends_on("exanbody@v2.0.7", when="@3.7.4")
-    depends_on("exanbody@v2.0.6", when="@3.7.3")
-    depends_on("exanbody@v2.0.5", when="@3.7.2")
-    depends_on("exanbody@v2.0.2", when="@3.7.0")    
+    depends_on("exanbody@v2.1.0", when="@v3.8.0")
+    depends_on("exanbody@v2.0.8", when="@v3.7.5")    
+    depends_on("exanbody@v2.0.7", when="@v3.7.4")
+    depends_on("exanbody@v2.0.6", when="@v3.7.3")
+    depends_on("exanbody@v2.0.5", when="@v3.7.2")
+    depends_on("exanbody@v2.0.2", when="@v3.7.0")    
 
     build_system("cmake", default="cmake")
     
