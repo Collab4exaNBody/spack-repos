@@ -35,7 +35,8 @@ class Eglrenderer(CMakePackage):
     )
     
     def cmake_args(self):
-        args = [ self.define_from_variant("EGLRENDER_GPU_COMPUTE_API=CUDA", "cuda"), ]
+        api = "CUDA" if "+cuda" in self.spec else "NONE"
+        args = [ self.define("EGLRENDER_GPU_COMPUTE_API", api), ]
         return args
     
     def setup_dependent_build_environment(self, env, dependent_spec):
