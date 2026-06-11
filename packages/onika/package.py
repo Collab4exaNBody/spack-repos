@@ -25,7 +25,7 @@ class Onika(CMakePackage):
     variant("contribs", default=False, description="Support for EGL Rendering")
 
     # Dependencies
-    depends_on("cmake")
+    depends_on("cmake@3.31.0:")
     depends_on("yaml-cpp@0.6.3")
     depends_on("openmpi")
     depends_on("cuda"       , when="+cuda")
