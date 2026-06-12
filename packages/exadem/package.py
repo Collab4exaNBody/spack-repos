@@ -24,7 +24,7 @@ class Exadem(CMakePackage):
     variant("cuda", default=False, description="Support for GPU")
     variant("rsampi", default=False, description="Support for particles generation using the RSA package")
 
-    depends_on("cmake@3.27.9")
+    depends_on("cmake@3.27.9:")
     depends_on("yaml-cpp@0.6.3")
     depends_on("openmpi")
     depends_on("rsampi", when="+rsampi")
