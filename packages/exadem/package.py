@@ -40,7 +40,7 @@ class Exadem(CMakePackage):
 # versioning
     depends_on("exanbody@v2.0.8", when="@1.2.1")
     depends_on("exanbody@v2.0.7", when="@1.2.0")
-	depends_on("exanbody@v2.0.4", when="@1.1.6")
+    depends_on("exanbody@v2.0.4", when="@1.1.6")
     depends_on("exanbody@v2.0.4", when="@1.1.5")
     depends_on("exanbody@v2.0.4", when="@1.1.4")
     depends_on("exanbody@v2.0.4", when="@1.1.3")
