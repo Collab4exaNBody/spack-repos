@@ -12,7 +12,9 @@ class Exadem(CMakePackage):
     git = "https://github.com/Collab4exaNBody/exaDEM.git"
 
     version("main", branch='main') 
-    version("1.1.6", tag='v1.1.6', preferred=True)
+    version("1.2.1", tag='v1.2.1', preferred=True)
+    version("1.2.0", tag='v1.2.0')
+    version("1.1.6", tag='v1.1.6')
     version("1.1.5", tag='v1.1.5')
     version("1.1.4", tag='v1.1.4')
     version("1.1.3", tag='v1.1.3')
@@ -36,7 +38,9 @@ class Exadem(CMakePackage):
     depends_on("exanbody@main", when="@main")
 
 # versioning
-    depends_on("exanbody@v2.0.4", when="@1.1.6")
+    depends_on("exanbody@v2.0.8", when="@1.2.1")
+    depends_on("exanbody@v2.0.7", when="@1.2.0")
+	depends_on("exanbody@v2.0.4", when="@1.1.6")
     depends_on("exanbody@v2.0.4", when="@1.1.5")
     depends_on("exanbody@v2.0.4", when="@1.1.4")
     depends_on("exanbody@v2.0.4", when="@1.1.3")
