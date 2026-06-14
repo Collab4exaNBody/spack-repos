@@ -42,6 +42,7 @@ class Exanbody(CMakePackage):
     
     # Versioning
     depends_on("onika@v1.1.0", when="@v2.1.0")
+    depends_on("onika@v1.0.6", when="@v2.0.8")
     depends_on("onika@v1.0.5", when="@v2.0.7")
     depends_on("onika@v1.0.4", when="@v2.0.6")
     depends_on("onika@v1.0.4", when="@v2.0.5")
