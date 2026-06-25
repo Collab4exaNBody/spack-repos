@@ -12,7 +12,7 @@ class Hippolbm(CMakePackage):
     git = "https://github.com/Collab4exaNBody/hippoLBM.git"
 
     version("main", branch='main')
-	version("0.3.0", tag='v0.3.0', preferred=True ) 
+    version("0.3.0", tag='v0.3.0', preferred=True ) 
     version("0.1.0", tag='v0.1.0') 
 
     variant("cuda", default=False, description="Support for GPU")
