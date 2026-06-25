@@ -11,18 +11,20 @@ class Hippolbm(CMakePackage):
     homepage = "https://github.com/Collab4exaNBody/hippoLBM"
     git = "https://github.com/Collab4exaNBody/hippoLBM.git"
 
-    version("main", branch='main') 
-    version("0.1.0", tag='v0.1.0', preferred=True ) 
+    version("main", branch='main')
+	version("0.3.0", tag='v0.3.0', preferred=True ) 
+    version("0.1.0", tag='v0.1.0') 
 
     variant("cuda", default=False, description="Support for GPU")
 
-    depends_on("cmake@3.27.9")
+    depends_on("cmake@:3.27.9")
     depends_on("yaml-cpp@0.6.3")
     depends_on("openmpi")
     depends_on("onika+cuda", when="+cuda")	
 	
 # main
-    depends_on("onika@v1.0.4", when="@main")
+    depends_on("onika@main", when="@main")
+    depends_on("onika@v1.1.0", when="@0.3.0")
     depends_on("onika@v1.0.4", when="@0.1.0")
     build_system("cmake", default="cmake")
 
